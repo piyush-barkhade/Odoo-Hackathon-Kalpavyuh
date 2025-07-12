@@ -1,18 +1,19 @@
 import { Link } from "react-router-dom";
 
-export default function ItemCard({ item }) {
+const ItemCard = ({ item }) => {
   return (
-    <div className="border rounded shadow p-4">
+    <div className="rounded-lg overflow-hidden shadow-md border border-gray-200 w-full max-w-md mx-auto">
       <img
         src={item.imageUrl}
         alt={item.title}
-        className="h-48 w-full object-cover mb-2"
+        className="w-full h-64 object-contain bg-white"
       />
-      <h3 className="font-bold">{item.title}</h3>
-      <p className="text-sm">{item.condition}</p>
-      <Link to={`/items/${item.id}`} className="text-green-600">
-        View Details
-      </Link>
+      <div className="p-6">
+        <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
+        <p className="text-gray-700">Condition: {item.condition}</p>
+      </div>
     </div>
   );
-}
+};
+
+export default ItemCard;

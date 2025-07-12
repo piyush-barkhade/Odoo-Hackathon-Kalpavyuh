@@ -5,14 +5,14 @@ const NewItemForm = () => {
   const [thumbnails, setThumbnails] = useState([]);
 
   const handleImageChange = (e) => {
-  const file = e.target.files[0];
-  if (file) {
-    const imageUrl = URL.createObjectURL(file);
-    setPreview(imageUrl);
-    setThumbnails((prev) => [...prev, imageUrl]);
-  }
-};
+    const file = e.target.files[0];
+    if (file) {
+      const imageUrl = URL.createObjectURL(file);
+      setPreview(imageUrl);
+      ssetThumbnails((prev) => [...prev, imageUrl]);
 
+    }
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -31,10 +31,11 @@ const NewItemForm = () => {
         />
       </div>
 
-      {/* Form Section */}
+      {/* Main Layout */}
       <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {/* Left: Image Upload */}
+        {/* Left: Product Image & Upload */}
         <div className="bg-white p-4 rounded shadow-md">
+          {/* Main Image */}
           <div className="flex justify-center">
             <div className="w-64 h-64 bg-gray-200 rounded flex items-center justify-center overflow-hidden">
               {preview ? (
@@ -58,18 +59,21 @@ const NewItemForm = () => {
           </div>
 
           {/* Upload Button */}
-          <div className="mt-4 flex flex-col items-center">
-            <label className="cursor-pointer bg-[#2f4156] text-white px-4 py-2 rounded hover:bg-[#1e2d3f] inline-block">
-              Choose Image
-              <input
-                type="file"
-                accept="image/*"
-                onChange={handleImageChange}
-                className="hidden"
-              />
-            </label>
-            <p className="text-sm text-gray-500 mt-1 text-center">Only image files are allowed</p>
-          </div>
+  <div className="mt-4 flex flex-col items-center">
+  <label className="cursor-pointer bg-[#2f4156] text-white px-4 py-2 rounded hover:bg-[#1e2d3f] inline-block">
+    Choose Image
+    <input
+      type="file"
+      accept="image/*"
+      onChange={handleImageChange}
+      className="hidden"
+    />
+  </label>
+  <p className="text-sm text-gray-500 mt-1 text-center">Only image files are allowed</p>
+</div>
+
+
+
         </div>
 
         {/* Right: Product Info */}
@@ -98,9 +102,30 @@ const NewItemForm = () => {
           </button>
         </div>
       </form>
+      {/* Product Image Cards Grid */}
+{thumbnails.length > 0 && (
+  <div className="mt-10">
+    <h2 className="text-xl font-semibold mb-4">Uploaded Product Images</h2>
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      {thumbnails.map((img, idx) => (
+        <div
+          key={idx}
+          className="bg-white p-2 rounded shadow hover:shadow-md transition duration-200"
+        >
+          <img
+            src={img}
+            alt={`product-${idx}`}
+            className="w-full h-40 object-cover rounded"
+          />
+          <p className="text-sm text-gray-600 mt-2 text-center">Image {idx + 1}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+)}
+
     </div>
   );
 };
 
 export default NewItemForm;
-

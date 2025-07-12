@@ -84,7 +84,13 @@ const ProductListingSection = () => {
   };
 
   return (
-    <section id="listings" className="py-12 text-center bg-transparent">
+    <section
+      id="listings"
+      className="py-12 text-center"
+      style={{
+        background: `radial-gradient(circle at center, #e6ebf0 0%, #d9e2ec 80%, #c5d3e3 90%, #b0c3db 97%, #2f4156 100%)`,
+      }}
+    >
       <h2 className="text-3xl font-bold text-[#2f4156] mb-8">Featured Items</h2>
 
       <Slider {...settings} className="px-4">

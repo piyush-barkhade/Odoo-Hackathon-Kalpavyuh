@@ -13,7 +13,10 @@ const CategoriesSection = () => {
   return (
     <section
       id="categories"
-      className="py-20 px-8 text-center bg-transparent border-b-2 border-[#2f4156]"
+      className="py-20 px-8 text-center border-b-2 border-[#2f4156]"
+      style={{
+        background: `radial-gradient(circle at center, #e6ebf0 0%, #d9e2ec 80%, #c5d3e3 90%, #b0c3db 97%, #2f4156 100%)`,
+      }}
     >
       <h2 className="text-[2.75rem] text-[#2f4156] font-extrabold mb-12 relative after:block after:w-14 after:h-1 after:bg-[#2f4156] after:mx-auto after:mt-4 after:rounded">
         Browse by Category
