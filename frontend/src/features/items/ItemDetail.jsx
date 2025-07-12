@@ -9,14 +9,14 @@ const dummyItems = [
     location: "Pune, India",
     size: "M",
     points: 120,
-    imageUrl: "/images/jacket.jpg",
+    imageUrl: "https://images-cdn.ubuy.co.in/65449ae6f5b7922220780054-voeeron-jean-jacket-for-men-denim-jacket.jpg",
     description:
       "This denim jacket is stylish and rugged. Lightly used, in good condition. Ideal for cool evenings and casual wear.",
     previousListings: [
-      "/images/jacket1.jpg",
-      "/images/jacket2.jpg",
-      "/images/jacket3.jpg",
-      "/images/jacket4.jpg",
+      "https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/Q04086s.jpg?im=Resize,width=750g",
+      "https://d1pdzcnm6xgxlz.cloudfront.net/tops/8905875022503-9.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5_I4Xc4OE8OPiCPieUtb_jkw7JMjhynntww&s",
+      "https://spykar.com/cdn/shop/products/TrVz3QE_Ba-MTJK-02BBFS-01Black-_2.webp?v=1750329873",
     ],
   },
 ];
