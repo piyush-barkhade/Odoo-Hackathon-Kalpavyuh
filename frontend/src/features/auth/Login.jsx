@@ -18,7 +18,7 @@ const Login = () => {
     try {
       const res = await api.post("/auth/login", { email, password });
       setLoginSession(res.data.token);
-      toast.success("🌿 Login successful! Welcome back.");
+      toast.success("Login successful! Welcome back.");
       navigate("/dashboard");
     } catch (err) {
       console.error("Login error:", err);
@@ -30,7 +30,7 @@ const Login = () => {
           message = err.response.data.message;
         }
       }
-      toast.error(`❌ ${message}`);
+      toast.error(`${message}`);
     } finally {
       setLoading(false);
     }
