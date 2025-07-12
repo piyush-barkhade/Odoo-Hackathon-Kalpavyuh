@@ -158,7 +158,7 @@ export default function LandingPage() {
           <span className="block w-16 h-1 mt-3 mx-auto bg-[#2f4156] rounded"></span>
         </h2>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-16 max-w-5xl mx-auto">
           {[
             {
               name: "Tops",
