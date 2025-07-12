@@ -17,16 +17,92 @@ const featuredItems = [
     title: "Blue Denim Jacket",
     size: "L",
     image:
-      "https://images.unsplash.com/photo-1602810316574-b4e31a7a1f33?auto=format&fit=crop&w=400&q=80",
+      "https://m.media-amazon.com/images/I/414NniPU2ML._AC_.jpg",
   },
   {
     id: 3,
     title: "Classic White Shirt",
     size: "S",
     image:
-      "https://images.unsplash.com/photo-1586449480106-0864479b253f?auto=format&fit=crop&w=400&q=80",
+      "https://m.media-amazon.com/images/I/71R-E74D9QL._SY879_.jpg",
   },
 ];
+
+// Featured items array
+const featuredItem = [
+  {
+    id: 1,
+    title: " Leather jacket",
+    size: "Medium",
+    image:
+      "https://m.media-amazon.com/images/I/71ma-aIucEL._SY879_.jpg",
+  },
+  {
+    id: 2,
+    title: "Summer Dress",
+    size: "Large",
+    image:
+      "https://m.media-amazon.com/images/I/61w+5MIGRGL._SY879_.jpg",
+  },
+  {
+    id: 3,
+    title: "Striped t-shirt",
+    size: "Small",
+    image:
+      "https://i.pinimg.com/736x/f8/aa/dc/f8aadcd4acb2947920654ebd2b391039.jpg",
+  },
+  {
+    id: 4,
+    title: "Denim jacket",
+    size: "Small",
+    image:
+      "https://m.media-amazon.com/images/I/414NniPU2ML._AC_.jpg",
+  },
+  {
+    id: 5,
+    title: "Men's shirt",
+    size: "Large",
+    image:
+      "https://m.media-amazon.com/images/I/71R4eQXT0OL._SY879_.jpg",
+  },
+  {
+    id: 6,
+    title: "Hoddie",
+    size: "Medium",
+    image:
+      "https://m.media-amazon.com/images/I/61Jx9DZ7sHL._SY879_.jpg",
+  },
+];
+
+// Slick carousel settings
+const sliderSettings = {
+  dots: true,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 4,
+  slidesToScroll: 1,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 3,
+      },
+    },
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 2,
+      },
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+      },
+    },
+  ],
+};
+
 
 export default function LandingPage() {
   const sliderSettings = {
@@ -134,32 +210,33 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* FEATURED LISTINGS */}
-      <section className="py-20 px-4 text-center bg-gradient-to-r from-[#f5efeb] via-[#c8d9e6]/20 to-[#f5efeb]">
-        <h2 className="text-4xl font-bold text-[#2f4156] mb-10">
-          Featured Items
-          <span className="block w-16 h-1 mt-3 mx-auto bg-[#2f4156] rounded"></span>
-        </h2>
-        <Slider {...sliderSettings} className="max-w-6xl mx-auto">
-          {featuredItems.map((item) => (
-            <div key={item.id} className="px-3">
-              <div className="bg-white/80 backdrop-blur border border-[#c8d9e6] p-4 rounded-xl shadow-md hover:shadow-xl transition-all hover:-translate-y-1.5 hover:scale-[1.02]">
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="w-full h-64 object-cover rounded-lg mb-4"
-                />
-                <h4 className="text-lg font-bold text-[#2f4156]">
-                  {item.title}
-                </h4>
-                <p className="text-sm text-[#2f4156]/85">
-                  Gently used · {item.size}
-                </p>
-              </div>
-            </div>
-          ))}
-        </Slider>
-      </section>
+     <section className="py-20 px-4 text-center bg-gradient-to-r from-[#f5efeb] via-[#c8d9e6]/20 to-[#f5efeb]">
+  <h2 className="text-4xl font-bold text-[#2f4156] mb-10">
+    Featured Items
+    <span className="block w-16 h-1 mt-3 mx-auto bg-[#2f4156] rounded"></span>
+  </h2>
+
+  <Slider {...sliderSettings} className="max-w-6xl mx-auto">
+    {featuredItem.map((item) => (
+      <div key={item.id} className="px-3">
+        <div className="bg-white/80 backdrop-blur border border-[#c8d9e6] p-4 rounded-xl shadow-md hover:shadow-xl transition-all hover:-translate-y-1.5 hover:scale-[1.02]">
+          <img
+            src={item.image}
+            alt={item.title}
+            className="w-full h-64 object-cover rounded-lg mb-4"
+          />
+          <h4 className="text-lg font-bold text-[#2f4156]">
+            {item.title}
+          </h4>
+          <p className="text-sm text-[#2f4156]/85">
+            Gently used · {item.size}
+          </p>
+        </div>
+      </div>
+    ))}
+  </Slider>
+</section>
+
     </div>
   );
 }
