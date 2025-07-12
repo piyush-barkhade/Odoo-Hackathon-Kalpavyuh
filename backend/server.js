@@ -1,25 +1,61 @@
 import express from "express";
-import mongoose from "mongoose";
-import dotenv from "dotenv";
 import cors from "cors";
-
-import authRoutes from "./routes/auth.js";
-import itemRoutes from "./routes/items.js";
-import adminRoutes from "./routes/admin.js";
+import dotenv from "dotenv";
+import rateLimit from "express-rate-limit";
+import connectDB from "./config/db.js";
+import authRoutes from "./routes/authRoutes.js";
 
 dotenv.config();
+
 const app = express();
-app.use(cors());
+const PORT = process.env.PORT || 5000;
+
+// Connect to DB
+connectDB();
+
+// CORS options
+const corsOptions = {
+  origin: process.env.CLIENT_URL || "http://localhost:5173",
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  credentials: true,
+  allowedHeaders: "Content-Type,Authorization",
+};
+
+// Global rate limiter
+const globalLimiter = rateLimit({
+  windowMs: 10 * 60 * 1000, // 10 minutes
+  max: 100,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: {
+    status: 429,
+    error: "Too Many Requests",
+    message: "You have exceeded the rate limit. Please try again later.",
+  },
+});
+
+// Middleware
+app.use(cors(corsOptions));
 app.use(express.json());
-app.use("/uploads", express.static("uploads")); // serve images
+app.use(globalLimiter);
 
-mongoose
-  .connect(process.env.MONGO_URI)
-  .then(() => console.log("MongoDB Connected"))
-  .catch(console.error);
-
+// Routes
 app.use("/api/auth", authRoutes);
-app.use("/api/items", itemRoutes);
-app.use("/api/admin", adminRoutes);
 
-app.listen(5000, () => console.log("Server running on port 5000"));
+// 404 handler
+app.use((req, res) => {
+  res.status(404).json({ success: false, message: "API endpoint not found" });
+});
+
+// Error handler
+app.use((err, req, res, next) => {
+  console.error("Unhandled error:", err.stack);
+  res.status(err.status || 500).json({
+    success: false,
+    message: err.message || "Something went wrong on the server",
+  });
+});
+
+app.listen(PORT, () => {
+  console.log(`✅ ReWear server running on port ${PORT}`);
+});
