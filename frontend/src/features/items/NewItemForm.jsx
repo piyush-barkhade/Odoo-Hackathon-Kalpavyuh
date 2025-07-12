@@ -5,14 +5,14 @@ const NewItemForm = () => {
   const [thumbnails, setThumbnails] = useState([]);
 
   const handleImageChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      const imageUrl = URL.createObjectURL(file);
-      setPreview(imageUrl);
-      setThumbnails((prev) => [...prev, imageUrl]); // ✅ Correct way
-      e.target.value = null; // Reset input for same file upload again
-    }
-  };
+  const file = e.target.files[0];
+  if (file) {
+    const imageUrl = URL.createObjectURL(file);
+    setPreview(imageUrl);
+    setThumbnails((prev) => [...prev, imageUrl]);
+  }
+};
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -99,23 +99,18 @@ const NewItemForm = () => {
         </div>
       </form>
 
-      {/* Product Image Cards Grid */}
+      {/* Previous Listings */}
       {thumbnails.length > 0 && (
         <div className="mt-10">
-          <h2 className="text-xl font-semibold mb-4">Uploaded Product Images</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {thumbnails.map((img, idx) => (
-              <div
-                key={idx}
-                className="bg-white p-2 rounded shadow hover:shadow-md transition duration-200"
-              >
-                <img
-                  src={img}
-                  alt={`product-${idx}`}
-                  className="w-full h-40 object-cover rounded"
-                />
-                <p className="text-sm text-gray-600 mt-2 text-center">Image {idx + 1}</p>
-              </div>
+          <h3 className="text-xl font-semibold mb-4">Previous Listings</h3>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {thumbnails.map((img, index) => (
+              <img
+                key={index}
+                src={img}
+                alt={`Listing ${index + 1}`}
+                className="w-full h-60 object-cover rounded shadow"
+              />
             ))}
           </div>
         </div>
@@ -125,3 +120,4 @@ const NewItemForm = () => {
 };
 
 export default NewItemForm;
+
