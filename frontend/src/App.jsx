@@ -10,6 +10,8 @@ import NewItemForm from "./features/items/NewItemForm";
 import ItemList from "./features/items/ItemList";
 import LandingPage from "./features/dashboard/LandingPage";
 import Footer from "./components/Footer";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function App() {
   return (
@@ -26,6 +28,7 @@ export default function App() {
         <Route path="/browse" element={<ItemList />} />
       </Routes>
       <Footer />
+      <ToastContainer />
     </BrowserRouter>
   );
 }

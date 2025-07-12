@@ -18,7 +18,7 @@ const Signup = () => {
 
     try {
       await api.post("/auth/signup", { name, email, password, phone });
-      toast.success("🎉 Registration successful! Please log in.");
+      toast.success("Registration successful! Please log in.");
       navigate("/login");
     } catch (err) {
       console.error("Signup error:", err);
@@ -36,7 +36,7 @@ const Signup = () => {
         }
       }
 
-      toast.error(`❌ ${message}`);
+      toast.error(`${message}`);
     } finally {
       setLoading(false);
     }
