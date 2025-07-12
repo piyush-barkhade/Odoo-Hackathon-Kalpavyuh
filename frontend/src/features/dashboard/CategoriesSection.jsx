@@ -1,19 +1,19 @@
-import React from 'react';
+import React from "react";
 
 const categories = [
-  { id: 1, name: 'Tops' },
-  { id: 2, name: 'Bottoms' },
-  { id: 3, name: 'Footwear' },
-  { id: 4, name: 'Ethnic Wear' },
-  { id: 5, name: 'Accessories' },
-  { id: 6, name: 'Winter Wear' },
+  { id: 1, name: "Tops" },
+  { id: 2, name: "Bottoms" },
+  { id: 3, name: "Footwear" },
+  { id: 4, name: "Ethnic Wear" },
+  { id: 5, name: "Accessories" },
+  { id: 6, name: "Winter Wear" },
 ];
 
 const CategoriesSection = () => {
   return (
     <section
       id="categories"
-      className="py-20 px-8 text-center bg-gradient-to-r from-[#2f4156] via-[#c8d9e6] to-[#2f4156] border-b-4 border-[#2f4156]"
+      className="py-20 px-8 text-center bg-transparent border-b-2 border-[#2f4156]"
     >
       <h2 className="text-[2.75rem] text-[#2f4156] font-extrabold mb-12 relative after:block after:w-14 after:h-1 after:bg-[#2f4156] after:mx-auto after:mt-4 after:rounded">
         Browse by Category
