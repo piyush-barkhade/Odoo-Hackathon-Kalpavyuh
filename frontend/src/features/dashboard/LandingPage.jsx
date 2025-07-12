@@ -163,32 +163,32 @@ export default function LandingPage() {
             {
               name: "Tops",
               image:
-                "https://images.unsplash.com/photo-1593032457860-6d914b7477b4?auto=format&fit=crop&w=400&q=80",
+                "https://m.media-amazon.com/images/I/81pCdAm35JL._SY879_.jpg",
             },
             {
               name: "Bottoms",
               image:
-                "https://images.unsplash.com/photo-1602810316444-6d914b74ab78?auto=format&fit=crop&w=400&q=80",
+                "https://m.media-amazon.com/images/I/51sMcIKpF2L._SY879_.jpg",
             },
             {
               name: "Footwear",
               image:
-                "https://images.unsplash.com/photo-1528701800489-20d2b13f5f8a?auto=format&fit=crop&w=400&q=80",
+                "https://m.media-amazon.com/images/I/51aeu7hreFL._SY695_.jpg",
             },
             {
               name: "Ethnic Wear",
               image:
-                "https://images.unsplash.com/photo-1620721694342-36f9b33c8259?auto=format&fit=crop&w=400&q=80",
+                "https://m.media-amazon.com/images/I/71mX4WATh-L._SX679_.jpg",
             },
             {
-              name: "Accessories",
+              name: "Sports Wear",
               image:
-                "https://images.unsplash.com/photo-1618172941463-6e923a9f0e82?auto=format&fit=crop&w=400&q=80",
+                "https://m.media-amazon.com/images/I/51Dt17fkanL._SX679_.jpg",
             },
             {
               name: "Winter Wear",
               image:
-                "https://images.unsplash.com/photo-1602810316574-b4e31a7a1f33?auto=format&fit=crop&w=400&q=80",
+                "https://m.media-amazon.com/images/I/61+dgzjDkRL._SY879_.jpg",
             },
           ].map((cat, index) => (
             <div
