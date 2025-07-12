@@ -43,6 +43,15 @@ export default function Navbar() {
           List Item
         </Link>
 
+        {user && user.role === "admin" && (
+          <Link
+            to="/admin"
+            className="font-semibold hover:text-[#c8d9e6] hover:underline underline-offset-4 transition-colors duration-200"
+          >
+            Admin
+          </Link>
+        )}
+
         {user ? (
           <>
             <button
