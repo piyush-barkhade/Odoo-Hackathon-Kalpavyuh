@@ -2,7 +2,19 @@ import React from "react";
 
 const HeroSection = () => {
   return (
-    <section className="w-full bg-transparent py-24 px-6 flex items-center justify-center text-center border-b-[2px] border-[#2f4156]">
+    <section
+      className="w-full py-28 px-6 flex items-center justify-center text-center border-b-[2px] border-[#2f4156]"
+      style={{
+        background: `radial-gradient(circle at center,
+          #dce5f2 0%,
+          #c6d4eb 20%,
+          #adc3e3 40%,
+          #8aa9d6 60%,
+          #567aa6 75%,
+          #2f4156 90%,
+          #1f2b3a 100%)`,
+      }}
+    >
       <div className="max-w-4xl px-4">
         <h1 className="text-5xl font-extrabold text-[#2f4156] mb-4 leading-tight tracking-tight">
           ReWear:{" "}
@@ -12,9 +24,7 @@ const HeroSection = () => {
         </h1>
         <p className="text-xl font-normal leading-8 text-[#2f4156] my-6">
           Built for the Hack-a-Solution 2025 – ReWear empowers communities to{" "}
-          <strong className="font-semibold">
-            swap, reuse, and reduce waste
-          </strong>{" "}
+          <strong className="font-semibold">swap, reuse, and reduce waste</strong>{" "}
           through a circular clothing exchange platform.
         </p>
         <div className="flex flex-wrap justify-center gap-5 mt-8">

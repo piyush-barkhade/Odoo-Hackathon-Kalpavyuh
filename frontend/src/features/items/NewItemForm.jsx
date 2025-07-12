@@ -98,23 +98,6 @@ const NewItemForm = () => {
           </button>
         </div>
       </form>
-
-      {/* Previous Listings */}
-      {thumbnails.length > 0 && (
-        <div className="mt-10">
-          <h3 className="text-xl font-semibold mb-4">Previous Listings</h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {thumbnails.map((img, index) => (
-              <img
-                key={index}
-                src={img}
-                alt={`Listing ${index + 1}`}
-                className="w-full h-60 object-cover rounded shadow"
-              />
-            ))}
-          </div>
-        </div>
-      )}
     </div>
   );
 };
