@@ -23,7 +23,6 @@ const Login = () => {
     } catch (err) {
       console.error("Login error:", err);
       let message = "Login failed. Please try again.";
-
       if (err?.response?.data?.message) {
         if (/invalid/i.test(err.response.data.message)) {
           message = "Invalid email or password. Please check your credentials.";
@@ -31,7 +30,6 @@ const Login = () => {
           message = err.response.data.message;
         }
       }
-
       toast.error(`❌ ${message}`);
     } finally {
       setLoading(false);
@@ -39,25 +37,37 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-cyan-100 to-yellow-50 px-4">
-      <div className="max-w-md w-full bg-white p-8 rounded-lg shadow-lg">
-        <h2 className="text-2xl font-bold text-yellow-400 mb-4 text-center">
+    <div
+      className="min-h-screen flex items-center justify-center px-4"
+      style={{ backgroundColor: "#c8d9e6" }}
+    >
+      <div
+        className="max-w-md w-full p-8 rounded-xl shadow-lg transition-all duration-300"
+        style={{ backgroundColor: "#f5efeb" }}
+      >
+        <h2
+          className="text-3xl font-extrabold mb-3 text-center"
+          style={{ color: "#2f4156" }}
+        >
           Welcome Back to ReWear
         </h2>
-        <p className="text-center text-purple-500 mb-6 text-sm">
+        <p className="text-center text-sm mb-6 text-gray-700">
           Sign in to continue your sustainable shopping journey.
         </p>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label htmlFor="email" className="block text-sm font-medium mb-1">
+            <label
+              htmlFor="email"
+              className="block text-sm font-medium mb-1 text-gray-700"
+            >
               Email Address
             </label>
             <input
               id="email"
               type="email"
               placeholder="you@example.com"
-              className="w-full border p-3 rounded focus:outline-none focus:ring-2 focus:ring-yellow-400"
+              className="w-full border border-gray-300 p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-[#2f4156] transition"
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -67,7 +77,7 @@ const Login = () => {
           <div>
             <label
               htmlFor="password"
-              className="block text-sm font-medium mb-1"
+              className="block text-sm font-medium mb-1 text-gray-700"
             >
               Password
             </label>
@@ -75,7 +85,7 @@ const Login = () => {
               id="password"
               type="password"
               placeholder="Your secure password"
-              className="w-full border p-3 rounded focus:outline-none focus:ring-2 focus:ring-yellow-400"
+              className="w-full border border-gray-300 p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-[#2f4156] transition"
               required
               minLength={8}
               value={password}
@@ -85,31 +95,27 @@ const Login = () => {
 
           <button
             type="submit"
-            className="w-full bg-yellow-400 hover:bg-yellow-300 text-white py-3 rounded font-semibold transition"
             disabled={loading}
+            className="w-full py-3 rounded-md font-semibold transition-colors duration-200 text-white"
+            style={{
+              backgroundColor: loading ? "#3e556e" : "#2f4156",
+              cursor: loading ? "not-allowed" : "pointer",
+            }}
           >
             {loading ? "Signing in..." : "Sign In"}
           </button>
         </form>
 
-        <div className="text-center text-sm mt-6">
-          <p className="text-gray-600">
+        <div className="text-center text-sm mt-6 text-gray-700">
+          <p>
             Don't have an account?{" "}
             <Link
               to="/signup"
-              className="text-blue-500 font-semibold hover:underline"
+              className="text-blue-600 font-semibold hover:underline"
             >
               Sign Up
             </Link>
           </p>
-          {/* <p className="mt-2">
-            <Link
-              to="/forgot-password"
-              className="text-orange-500 font-semibold hover:underline"
-            >
-              Forgot Password?
-            </Link>
-          </p> */}
         </div>
       </div>
     </div>

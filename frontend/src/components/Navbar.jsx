@@ -12,22 +12,37 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="bg-green-700 p-4 text-white flex justify-between items-center">
-      <Link to="/" className="font-bold text-xl">
+    <nav
+      className="p-4 text-white flex justify-between items-center shadow-md"
+      style={{ backgroundColor: "#2f4156" }}
+    >
+      <Link to="/" className="font-bold text-xl hover:opacity-90">
         ReWear
       </Link>
 
-      <div className="space-x-4 flex items-center">
-        <Link to="/" className="hover:text-yellow-300">
+      <div className="flex items-center flex-wrap gap-4 md:gap-6">
+        <Link
+          to="/"
+          className="hover:text-[#c8d9e6] transition-colors duration-200"
+        >
           Home
         </Link>
-        <Link to="/browse" className="hover:text-yellow-300">
+        <Link
+          to="/browse"
+          className="hover:text-[#c8d9e6] transition-colors duration-200"
+        >
           Browse
         </Link>
-        <Link to="/new-item" className="hover:text-yellow-300">
+        <Link
+          to="/new-item"
+          className="hover:text-[#c8d9e6] transition-colors duration-200"
+        >
           List Item
         </Link>
-        <Link to="/dashboard" className="hover:text-yellow-300">
+        <Link
+          to="/dashboard"
+          className="hover:text-[#c8d9e6] transition-colors duration-200"
+        >
           Dashboard
         </Link>
 
@@ -35,14 +50,15 @@ export default function Navbar() {
           <>
             <button
               onClick={() => navigate("/profile")}
-              className="flex items-center space-x-1 hover:text-yellow-300"
+              className="flex items-center space-x-1 px-4 py-1.5 rounded-full border border-[#c8d9e6] hover:bg-[#c8d9e6] hover:text-[#2f4156] transition duration-200"
             >
-              <FiUser className="text-xl" />
-              <span>Profile</span>
+              <FiUser className="text-lg" />
+              <span className="hidden sm:inline">Profile</span>
             </button>
+
             <button
               onClick={handleLogout}
-              className="bg-yellow-400 text-green-800 px-3 py-1 rounded hover:bg-yellow-300 font-semibold transition"
+              className="min-w-[100px] text-center bg-[#c8d9e6] text-[#2f4156] px-4 py-1.5 rounded-full font-semibold border border-transparent hover:bg-[#f5efeb] hover:border-[#2f4156] transition duration-200"
             >
               Logout
             </button>
@@ -51,13 +67,13 @@ export default function Navbar() {
           <>
             <Link
               to="/login"
-              className="bg-yellow-400 text-green-800 px-3 py-1 rounded hover:bg-yellow-300 font-semibold transition"
+              className="min-w-[100px] text-center bg-[#c8d9e6] text-[#2f4156] px-4 py-1.5 rounded-full font-semibold border border-transparent hover:bg-[#f5efeb] hover:border-[#2f4156] transition duration-200"
             >
               Login
             </Link>
             <Link
               to="/signup"
-              className="bg-yellow-400 text-green-800 px-3 py-1 rounded hover:bg-yellow-300 font-semibold transition"
+              className="min-w-[100px] text-center bg-[#c8d9e6] text-[#2f4156] px-4 py-1.5 rounded-full font-semibold border border-transparent hover:bg-[#f5efeb] hover:border-[#2f4156] transition duration-200"
             >
               Sign Up
             </Link>
