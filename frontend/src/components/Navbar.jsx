@@ -1,4 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
+import Logo from "../assets/logo.png";
 import { useAuth } from "../context/AuthContext";
 import {
   FiUser,
@@ -26,11 +27,16 @@ export default function Navbar() {
       style={{ backgroundColor: "#2f4156" }}
     >
       <Link
-        to="/"
-        className="flex items-center gap-1 font-extrabold text-4xl tracking-tight hover:opacity-90 transition duration-200"
-      >
-        ReWear
-      </Link>
+  to="/"
+  className="flex items-center gap-2 font-extrabold text-4xl tracking-tight hover:opacity-90 transition duration-200"
+>
+  <img
+    src={Logo}
+    alt="ReWear Logo"
+    className="w-10 h-10 rounded-full object-cover shadow-md"
+  />
+  <span>ReWear</span>
+</Link>
 
       <div className="flex items-center flex-wrap gap-5 md:gap-6">
         <Link
