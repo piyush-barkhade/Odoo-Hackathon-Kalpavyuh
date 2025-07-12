@@ -42,7 +42,7 @@ const dummyItems = [
 export default function ItemList() {
   return (
     <div className="p-4">
-      <h2 className="text-2xl font-bold mb-4">My Items</h2>
+      <h2 className="text-2xl font-bold mb-4">Rewear Items</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {dummyItems.map((item) => (
           <ItemCard key={item.id} item={item} />

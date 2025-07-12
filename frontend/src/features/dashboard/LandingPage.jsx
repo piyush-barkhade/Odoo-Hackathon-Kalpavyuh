@@ -1,18 +1,165 @@
 import React from "react";
-import HeroSection from "./HeroSection";
-import CategoriesSection from "./CategoriesSection";
-import ProductListingSection from "./ProductListingSection";
+import Slider from "react-slick";
+import { Link } from "react-router-dom";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const LandingPage = () => {
+const featuredItems = [
+  {
+    id: 1,
+    title: "Floral Summer Dress",
+    size: "M",
+    image:
+      "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=400&q=80",
+  },
+  {
+    id: 2,
+    title: "Blue Denim Jacket",
+    size: "L",
+    image:
+      "https://images.unsplash.com/photo-1602810316574-b4e31a7a1f33?auto=format&fit=crop&w=400&q=80",
+  },
+  {
+    id: 3,
+    title: "Classic White Shirt",
+    size: "S",
+    image:
+      "https://images.unsplash.com/photo-1586449480106-0864479b253f?auto=format&fit=crop&w=400&q=80",
+  },
+];
+
+export default function LandingPage() {
+  const sliderSettings = {
+    dots: true,
+    infinite: true,
+    speed: 600,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    cssEase: "ease-in-out",
+    arrows: false,
+    responsive: [
+      { breakpoint: 1024, settings: { slidesToShow: 2 } },
+      { breakpoint: 640, settings: { slidesToShow: 1 } },
+    ],
+  };
+
   return (
-    <div className="bg-gradient-to-r from-[#8aadc3] via-[#f5efeb] to-[#8aadc3] min-h-screen">
-      <HeroSection />
-      <CategoriesSection />
-      <ProductListingSection />
+    <div className="min-h-screen bg-gradient-to-r from-[#f5efeb] via-[#c8d9e6]/40 to-[#f5efeb]">
+      {/* HERO SECTION */}
+      <section className="relative py-24 md:py-32 text-center flex items-center justify-center overflow-hidden">
+        <div className="max-w-3xl px-6">
+          <h1 className="text-5xl md:text-6xl font-extrabold text-[#2f4156] leading-tight tracking-tight drop-shadow">
+            ReWear
+          </h1>
+          <p className="mt-4 md:mt-6 text-lg md:text-2xl text-[#2f4156] opacity-90 max-w-2xl mx-auto">
+            Built for Hack-a-Solution 2025 – empowering communities to{" "}
+            <span className="font-bold">swap, reuse, and reduce waste</span>{" "}
+            through a circular clothing exchange.
+          </p>
+          <div className="mt-8 flex flex-wrap justify-center gap-4">
+            <Link
+              to="/browse"
+              className="bg-[#2f4156] text-white py-3 px-7 rounded-full font-semibold shadow hover:bg-[#1e2e3f] hover:scale-105 transition-all"
+            >
+              Browse Items
+            </Link>
+            <Link
+              to="/new-item"
+              className="border border-[#2f4156] text-[#2f4156] bg-[#f5efeb]/70 backdrop-blur-md py-3 px-7 rounded-full font-semibold hover:bg-[#f5efeb] hover:scale-105 transition-all"
+            >
+              List an Item
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* CATEGORIES */}
+      <section className="py-20 px-6 text-center bg-[#f5efeb]/70 backdrop-blur">
+        <h2 className="text-4xl font-bold text-[#2f4156] mb-12 relative">
+          Browse by Category
+          <span className="block w-16 h-1 mt-3 mx-auto bg-[#2f4156] rounded"></span>
+        </h2>
+
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+          {[
+            {
+              name: "Tops",
+              image:
+                "https://images.unsplash.com/photo-1593032457860-6d914b7477b4?auto=format&fit=crop&w=400&q=80",
+            },
+            {
+              name: "Bottoms",
+              image:
+                "https://images.unsplash.com/photo-1602810316444-6d914b74ab78?auto=format&fit=crop&w=400&q=80",
+            },
+            {
+              name: "Footwear",
+              image:
+                "https://images.unsplash.com/photo-1528701800489-20d2b13f5f8a?auto=format&fit=crop&w=400&q=80",
+            },
+            {
+              name: "Ethnic Wear",
+              image:
+                "https://images.unsplash.com/photo-1620721694342-36f9b33c8259?auto=format&fit=crop&w=400&q=80",
+            },
+            {
+              name: "Accessories",
+              image:
+                "https://images.unsplash.com/photo-1618172941463-6e923a9f0e82?auto=format&fit=crop&w=400&q=80",
+            },
+            {
+              name: "Winter Wear",
+              image:
+                "https://images.unsplash.com/photo-1602810316574-b4e31a7a1f33?auto=format&fit=crop&w=400&q=80",
+            },
+          ].map((cat, index) => (
+            <div
+              key={index}
+              className="relative rounded-2xl overflow-hidden shadow hover:shadow-xl cursor-pointer group transition-all"
+            >
+              <img
+                src={cat.image}
+                alt={cat.name}
+                className="w-full h-44 object-cover transform group-hover:scale-105 group-hover:brightness-90 transition duration-300"
+              />
+              <div className="absolute inset-0 bg-white/30 backdrop-blur-sm flex items-center justify-center">
+                <span className="text-[#2f4156] font-bold text-lg">
+                  {cat.name}
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* FEATURED LISTINGS */}
+      <section className="py-20 px-4 text-center bg-gradient-to-r from-[#f5efeb] via-[#c8d9e6]/20 to-[#f5efeb]">
+        <h2 className="text-4xl font-bold text-[#2f4156] mb-10">
+          Featured Items
+          <span className="block w-16 h-1 mt-3 mx-auto bg-[#2f4156] rounded"></span>
+        </h2>
+        <Slider {...sliderSettings} className="max-w-6xl mx-auto">
+          {featuredItems.map((item) => (
+            <div key={item.id} className="px-3">
+              <div className="bg-white/80 backdrop-blur border border-[#c8d9e6] p-4 rounded-xl shadow-md hover:shadow-xl transition-all hover:-translate-y-1.5 hover:scale-[1.02]">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full h-64 object-cover rounded-lg mb-4"
+                />
+                <h4 className="text-lg font-bold text-[#2f4156]">
+                  {item.title}
+                </h4>
+                <p className="text-sm text-[#2f4156]/85">
+                  Gently used · {item.size}
+                </p>
+              </div>
+            </div>
+          ))}
+        </Slider>
+      </section>
     </div>
   );
-};
-
-export default LandingPage;
+}
