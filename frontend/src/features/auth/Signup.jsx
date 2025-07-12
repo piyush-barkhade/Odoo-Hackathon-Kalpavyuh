@@ -17,7 +17,7 @@ const Signup = () => {
     setLoading(true);
 
     try {
-      await api.post("/auth/register", { name, email, password, phone });
+      await api.post("/auth/signup", { name, email, password, phone });
       toast.success("🎉 Registration successful! Please log in.");
       navigate("/login");
     } catch (err) {
