@@ -14,7 +14,7 @@ export default function UserDashboard() {
         <div className="bg-white shadow-lg rounded-xl p-6 flex flex-col md:flex-row items-center gap-6 absolute top-5 left-6 w-[95%] md:w-[100%] border border-[#c8d9e6]">
           <div className="relative">
             <img
-              src="https://via.placeholder.com/100?text=Profile+Avatar"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQm7NqghggULBIVDvWxoJPqDqZLzDmG0ES8CA&s"
               alt="Profile Avatar"
               className="w-28 h-28 rounded-full border-4 border-[#2f4156] shadow-md hover:scale-105 transition-transform duration-300"
             />
