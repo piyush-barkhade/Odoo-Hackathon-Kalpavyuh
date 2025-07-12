@@ -71,7 +71,6 @@ export default function AdminPanel() {
       const res = await api.get("/admin/pending-items");
       setPendingItems(res.data);
     } catch {
-      toast.error("❌ Failed to load listings – using sample data");
       setPendingItems(staticListings);
     } finally {
       setLoading(false);
@@ -84,7 +83,6 @@ export default function AdminPanel() {
       const res = await api.get("/admin/all-listings");
       setAllListings(res.data);
     } catch {
-      toast.error("❌ Failed to load all listings – using sample data");
       setAllListings(staticListings);
     } finally {
       setLoading(false);
@@ -97,7 +95,6 @@ export default function AdminPanel() {
       const res = await api.get("/admin/orders");
       setOrders(res.data);
     } catch {
-      toast.error("❌ Failed to load orders – using sample data");
       setOrders(staticOrders);
     } finally {
       setLoading(false);
@@ -110,7 +107,6 @@ export default function AdminPanel() {
       const res = await api.get("/admin/users");
       setUsers(res.data);
     } catch {
-      toast.error("❌ Failed to load users – using sample data");
       setUsers(staticUsers);
     } finally {
       setLoading(false);
@@ -136,7 +132,6 @@ export default function AdminPanel() {
       toast.success("✅ Item approved");
       await fetchListings();
     } catch {
-      toast.error("❌ Error approving item");
     } finally {
       setActionLoadingId(null);
     }
@@ -150,7 +145,7 @@ export default function AdminPanel() {
       toast.success("🗑️ Item rejected");
       await fetchListings();
     } catch {
-      toast.error("❌ Error rejecting item");
+      toast.error(" ");
     } finally {
       setActionLoadingId(null);
     }
