@@ -16,41 +16,38 @@ export default function Navbar() {
       className="p-4 text-white flex justify-between items-center shadow-md"
       style={{ backgroundColor: "#2f4156" }}
     >
-      <Link to="/" className="font-bold text-xl hover:opacity-90">
+      <Link
+        to="/"
+        className="font-extrabold text-2xl tracking-tight hover:opacity-90 transition duration-200"
+      >
         ReWear
       </Link>
 
       <div className="flex items-center flex-wrap gap-4 md:gap-6">
         <Link
           to="/"
-          className="hover:text-[#c8d9e6] transition-colors duration-200"
+          className="font-semibold hover:text-[#c8d9e6] hover:underline underline-offset-4 transition-colors duration-200"
         >
           Home
         </Link>
         <Link
           to="/browse"
-          className="hover:text-[#c8d9e6] transition-colors duration-200"
+          className="font-semibold hover:text-[#c8d9e6] hover:underline underline-offset-4 transition-colors duration-200"
         >
           Browse
         </Link>
         <Link
           to="/new-item"
-          className="hover:text-[#c8d9e6] transition-colors duration-200"
+          className="font-semibold hover:text-[#c8d9e6] hover:underline underline-offset-4 transition-colors duration-200"
         >
           List Item
-        </Link>
-        <Link
-          to="/dashboard"
-          className="hover:text-[#c8d9e6] transition-colors duration-200"
-        >
-          Dashboard
         </Link>
 
         {user ? (
           <>
             <button
-              onClick={() => navigate("/profile")}
-              className="flex items-center space-x-1 px-4 py-1.5 rounded-full border border-[#c8d9e6] hover:bg-[#c8d9e6] hover:text-[#2f4156] transition duration-200"
+              onClick={() => navigate("/dashboard")}
+              className="flex items-center space-x-1 px-4 py-1.5 rounded-full border border-[#c8d9e6] font-semibold hover:bg-[#c8d9e6] hover:text-[#2f4156] transition duration-200"
             >
               <FiUser className="text-lg" />
               <span className="hidden sm:inline">Profile</span>
