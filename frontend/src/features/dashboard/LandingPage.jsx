@@ -54,7 +54,7 @@ const featuredItem = [
   {
     id: 4,
     title: "Denim jacket",
-    size: "Small",
+    size: "Large",
     image:
       "https://m.media-amazon.com/images/I/414NniPU2ML._AC_.jpg",
   },
